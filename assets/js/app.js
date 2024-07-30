@@ -17,46 +17,54 @@ links.forEach(link=>{
 
 const mainHead = document.querySelector('.mainHead');
 
-        // Mantiene la posición de scroll anterior
-        let lastScrollTop = 0;
+// Mantiene la posición de scroll anterior
+let lastScrollTop = 0;
 
-        // Función para verificar la dirección del scroll
-        function handleScroll() {
-            // Obtiene la posición de scroll actual
-            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+// Función para verificar la dirección del scroll
+function handleScroll() {
+    // Obtiene la posición de scroll actual
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Compara la posición actual con la anterior
-            if (currentScrollTop > lastScrollTop) {
-                // Scroll hacia abajo - ocultar
-                mainHead.classList.add('hidden');
-            } else {
-                // Scroll hacia arriba - mostrar
-                mainHead.classList.remove('hidden');
-            }
+    // Compara la posición actual con la anterior
+    if (currentScrollTop > lastScrollTop) {
+        // Scroll hacia abajo - ocultar
+        mainHead.classList.add('hidden');
+    } else {
+        // Scroll hacia arriba - mostrar
+        mainHead.classList.remove('hidden');
+    }
 
-            // Actualiza la posición de scroll anterior
-            lastScrollTop = currentScrollTop;
+    // Actualiza la posición de scroll anterior
+    lastScrollTop = currentScrollTop;
+}
+
+// Función para limitar la frecuencia de ejecución de una función
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function() {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(function() {
+                if ((Date.now() - lastRan) >= limit) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
         }
+    };
+}
 
-        // Escuchar el evento de scroll
-        window.addEventListener('scroll', handleScroll);
+// Crea una versión optimizada de la función de scroll usando throttle
+const handleScrollThrottled = throttle(handleScroll, 500);
 
-        // Función para verificar el tamaño de la ventana
-        function handleMediaQueryChange(event) {
-            if (event.matches) {
-                // Si el ancho de la ventana es menor o igual a 842px, agrega la clase
-                mainHead.classList.add('fixedMenu');
-            } else {
-                // Si el ancho de la ventana es mayor a 842px, quita la clase
-                mainHead.classList.remove('fixedMenu');
-            }
-        }
+// Escuchar el evento de scroll
+window.addEventListener('scroll', handleScrollThrottled);
 
-        // Crea un objeto MediaQueryList
-        const mediaQuery = window.matchMedia('(max-width: 842px)');
-
-        // Agrega un event listener para cambios en el estado de la media query
-        mediaQuery.addListener(handleMediaQueryChange);
-
-        // Llama a la función inmediatamente para verificar el estado inicial
-        handleMediaQueryChange(mediaQuery);
+// Agregar la clase 'fixedMenu' al elemento 'mainHead'
+mainHead.classList.add('fixedMenu');

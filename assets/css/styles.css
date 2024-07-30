@@ -403,6 +403,34 @@ footer h4{
         transform: rotateZ(-45deg) translateY(-300%);
         background:var(--background-second-color);
     }
+
+
+    .aboutText div{
+        padding: 3rem 3rem;
+    }
+
+    /* Gallery */
+    .gallery img{
+        grid-row: auto;
+        grid-column: auto;
+    }
+    .gallery{
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+    .gallery header{
+        display: none;
+    }
+    .contact img{
+        display: none;
+    }
+    footer ul{
+        order: 1;
+    }
+    footer h4{
+        order: 2;
+        text-align: center;
+        padding: 2rem;
+    }
 }
 
 
