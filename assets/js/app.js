@@ -33,7 +33,6 @@ loginModal.addEventListener('click', () => {
             login.style.display = 'none'; // Oculta el modal
         }, { once: true });// Para que solo se ejecuta una vez
     } else {
-        // Si no está animado, solo añade la clase para la entrada
         login.style.display = 'grid'; // Muestra el modal
         login.classList.add('loginToggle');
     }

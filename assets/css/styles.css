@@ -10,11 +10,11 @@
 }
 @font-face {
     font-family: 'Ruhl Medium';
-    src: url(./fonts/FrankRuhlLibre-Medium.ttf);
+    src: url(../fonts/FrankRuhlLibre-Medium.ttf);
 }
 @font-face {
     font-family: 'Vibes';
-    src: url(./fonts/GreatVibes-Regular.ttf);
+    src: url(../fonts/GreatVibes-Regular.ttf);
 }
 
 html{
@@ -23,7 +23,7 @@ html{
     --header1: calc(2rem + 1vw);
     --header2: calc(3.5rem + 1vw);
     --header3: calc(3rem + 1vw);
-    --header4: calc(2.4rem + 1vw);
+    --header4: calc(1rem + 1vw);
     --text: calc(1.5rem + 1vw);
     --big: calc(6rem + 1vw);
     --special-color: #4F1787;
@@ -72,7 +72,18 @@ button{
 }
 button:hover{
     background: #27394e;
-    font-size: 2.6rem;
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.1);
+}
+input{
+    margin: 3rem 0rem;
+    color: var(--main-color);
+    border: none;
+    padding: 1rem;
+    transition: all 0.5s ease;
+}
+input:focus{
+    outline: none;
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.1);
 }
 .flex{
     display: flex;
@@ -358,7 +369,7 @@ footer h4{
 }
 
 .loginWrapper{
-    height: 50vh;
+    height: 70vh;
     width: 50vw;
     margin: auto;
     display: flex;
@@ -391,10 +402,32 @@ footer h4{
 .login.logout {
     animation: logouts 1s ease-in-out;
     opacity: 0;
-    transform: translateY(-50px);
     transition: opacity 1s ease, transform 0.3s ease;
 }
 
+.optionsLogin{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-around;
+    justify-content: center;
+    gap: 1rem;
+}
+.optionsLogin a{
+    padding: 1rem 4rem;
+    background: var(--special-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: var(--header4);
+    transition: all 0.5s ease;
+}
+.optionsLogin a:hover{
+    background: #4c6e97;
+    color: #fff;
+    transition: all 0.5s ease;
+}
 
 
 /* Media Queries */
