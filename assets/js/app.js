@@ -15,6 +15,33 @@ links.forEach(link=>{
 });
 
 
+
+/* --------------------------------- Login --------------------------------- */
+
+
+const login = document.querySelector('.login');
+const loginModal = document.getElementById('loginModal');
+
+loginModal.addEventListener('click', () => {
+    if (login.classList.contains('loginToggle')) {
+        // Agrega la clase de animación de salida
+        login.classList.add('logout');
+
+        // Espera el tiempo de duración de la animación para eliminar la clase y ocultar el modal
+        login.addEventListener('transitionend', () => {
+            login.classList.remove('loginToggle', 'logout');
+            login.style.display = 'none'; // Oculta el modal
+        }, { once: true });// Para que solo se ejecuta una vez
+    } else {
+        // Si no está animado, solo añade la clase para la entrada
+        login.style.display = 'grid'; // Muestra el modal
+        login.classList.add('loginToggle');
+    }
+});
+
+
+/* --------------------------------- Scroll --------------------------------- */
+
 const mainHead = document.querySelector('.mainHead');
 
 // Mantiene la posición de scroll anterior

@@ -173,7 +173,17 @@ nav{
     border: 3px solid black;
     margin-bottom: 4rem;
     font-size: var(--header4);
+    transition: all 0.5s ease;
 }
+
+.heroIntroduction a:hover{
+    background: var(--special-color);
+    color: #fff;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+
 .heroImages{
     flex: 1 1 40rem;
     background: linear-gradient(#dad8dd, #dad1d4);
@@ -339,6 +349,54 @@ footer h4{
 
 /* login - register */
 
+.login {
+    height: 100vh;
+    width: 100%;
+    display: none;
+    align-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.loginWrapper{
+    height: 50vh;
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+}
+.loginWrapper h2{
+    width: 100%;
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: all 1s ease;
+}
+
+.loginToggle {
+    display: grid;
+    position: fixed;
+    top: 0;
+    background-color: #dad1d4;
+    transition: opacity 1s ease, transform 0.3s ease;
+    animation: loging 1s ease-in-out;
+}
+
+.login.logout {
+    animation: logouts 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 0.3s ease;
+}
+
+
+
 /* Media Queries */
 
 
@@ -444,3 +502,24 @@ footer h4{
         opacity: 1;
     }
 }
+
+@keyframes loging{
+    from{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logouts{
+    from{
+        transform: translateY(0);      
+    }
+    to{
+        transform: translateY(-100%);
+    }
+}
+
