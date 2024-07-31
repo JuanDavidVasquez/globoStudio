@@ -19,48 +19,77 @@ const newSales = document.getElementById('newSale');
 const dash = document.getElementById('dash');
 const content = document.querySelector('.content');
 
-sales.addEventListener('click', ()=>{
+sales.addEventListener('click', () => {
     content.innerHTML = `
-    <div class="containerSales">
-                    <div class="itemSales">
-                        <h6>Sale</h6>
-                        <h4>Status: <span>New</span></h4>
-                        <p>Description:<br/>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
-                            <span class="dateDelivery">Estimated delivery date: 01-08-2024</span>
-                    </div>
-                    <div class="itemSales">
-                        <h6>Sale</h6>
-                        <h4>Status: <span>building art</span></h4>
-                        <p>Description:<br/>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
-                            <span class="dateDelivery">Estimated delivery date: 01-08-2024</span>
-                    </div>
-                    <div class="itemSales">
-                        <h6>Sale</h6>
-                        <h4>Status: <span>building art</span></h4>
-                        <p>Description:<br/>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
-                            <span class="dateDelivery">Estimated delivery date: 01-08-2024</span>
-                    </div>
-                    <div class="itemSales">
-                        <h6>Sale</h6>
-                        <h4>Status: <span>on the way</span></h4>
-                          <p>Description:<br/>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
-                            <span class="dateDelivery">Estimated delivery date: 01-08-2024</span>
-                    </div>
-                    <div class="itemSales">
-                        <h6>Sale</h6>
-                        <h4>Status: <span>Stock</span></h4>
-                          <p>Description:<br/>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
-                            <span class="dateDelivery">Estimated delivery date: 01-08-2024</span>
-                       
-                    </div>
-                </div>
+    <div class="salesContainer">
+        <h2>Sales Overview</h2>
+        <table class="salesTable">
+            <thead>
+                <tr>
+                    <th>Sale</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="status new">New</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                    <td class="actionButtons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><span class="status building">Building Art</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                  <td class="actionButtons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                     <td class="actionButtons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><span class="status on-the-way">On the Way</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                     <td class="actionButtons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><span class="status stock">Stock</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                   <td class="actionButtons">
+                        <button id="edit">Edit</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     `;
 });
+
 
 newSales.addEventListener('click', ()=>{
     content.innerHTML = `
