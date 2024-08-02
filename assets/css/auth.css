@@ -233,7 +233,7 @@ input:focus{
 
 /* Estilos de la tabla */
 .salesTable {
-    width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     margin-top: 1rem;
 }
@@ -476,4 +476,159 @@ input:focus{
 /* Contenedor del gráfico */
 .chart {
     height: 400px;
+}
+
+
+/*  containerDashInit  */
+
+.containerDashInit{
+    display: grid;
+    align-content: start;    
+}
+
+.dashInit{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.dashInit .itemDashInit .chart{
+    width: 400px;
+    height: 200px;
+}
+.adminSales{
+    margin-top: 5rem;
+}
+
+
+
+/*
+    USERS
+*/
+
+.usersContainer {
+    padding: 20px;
+}
+
+.usersTable {
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.usersTable th,
+.usersTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.usersTable th {
+    background-color: #f4f4f4;
+}
+.usersTable tr:hover{
+    background-color: #95949488;
+}
+.actionButton {
+    border: none;
+    padding: 8px 12px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.editButton {
+    background-color: #4caf50; 
+}
+
+.deleteButton {
+    background-color: #f44336;
+}
+
+.actionButton:hover {
+    opacity: 0.8;
+}
+
+/*
+    POINTS
+*/
+
+.pointsContainer {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pointsSummary {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pointsCard {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
+
+.pointsCard h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.pointsValue {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.pointsDescription {
+    font-size: 14px;
+    color: #666;
+}
+
+.hamburguesa{
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+
+    .adminSales, .salesContainer{
+        max-width: 90%;
+        overflow-x: scroll;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sidebar{
+        display: none;
+    }
+    .mainContent{
+        position: relative;
+        width: 100%;
+    }
+    .hamburguesa{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .linea{
+        width: 30px;
+        height: 3px;
+        background-color: var(--main-color);
+        margin: 5px;
+    }
 }

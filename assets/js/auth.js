@@ -1,23 +1,207 @@
-/* const nav = document.querySelector('.navLinks');
-const burger = document.querySelector('.burger');
-const links = nav.querySelectorAll("a");
-
-burger.addEventListener("click", ()=>{
-    nav.classList.toggle("nav-open");
-    burger.classList.toggle("toggle");
-});
-
-links.forEach(link=>{
-    link.addEventListener("click",()=>{
-        nav.classList.toggle("nav-open");
-        burger.classList.toggle("toggle");
-    });
-}); */
-
 const sales = document.getElementById('sales');
 const newSales = document.getElementById('newSale');
 const dash = document.getElementById('dash');
 const content = document.querySelector('.content');
+const panelAdmin = document.getElementById('panelAdmin');
+const users = document.getElementById('users');
+const myPoints = document.getElementById('myPoints');
+
+myPoints.addEventListener('click', () => {
+    content.innerHTML = `
+        <div class="pointsContainer">
+            <h2>My Points</h2>
+            <div class="pointsSummary">
+                <div class="pointsCard">
+                    <h3>Accumulated Points</h3>
+                    <p class="pointsValue">500</p>
+                    <p class="pointsDescription">Points you have accumulated so far.</p>
+                </div>
+                <div class="pointsCard">
+                    <h3>Spent Points</h3>
+                    <p class="pointsValue">150</p>
+                    <p class="pointsDescription">Points you have spent.</p>
+                </div>
+                <div class="pointsCard">
+                    <h3>Points Expiration</h3>
+                    <p class="pointsValue">2024-12-31</p>
+                    <p class="pointsDescription">Date when your points will expire.</p>
+                </div>
+            </div>
+        </div>
+    `;
+});
+
+
+users.addEventListener('click', () => {
+    content.innerHTML = `
+        <div class="usersContainer">
+            <h2>Users</h2>
+            <table class="usersTable">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>creator</td>
+                        <td>
+                            <button class="actionButton editButton">Edit</button>
+                            <button class="actionButton deleteButton">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>Client</td>
+                        <td>
+                            <button class="actionButton editButton">Edit</button>
+                            <button class="actionButton deleteButton">Delete</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>Gabriel Vasquez</td>
+                        <td>gabriel@example.com</td>
+                        <td>Admin</td>
+                        <td>
+                            <button class="actionButton editButton">Edit</button>
+                            <button class="actionButton deleteButton">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+});
+
+
+function renderDonutChart(selector, series, labels, title) {
+    const options = {
+        series: series, // Datos para los segmentos del pastel
+        chart: {
+            height: 400,
+            type: 'pie' // Tipo de gráfico
+        },
+        title: {
+            text: title,   // Título del gráfico
+            align: 'left'
+        },
+        labels: labels, // Etiquetas para cada segmento
+        legend: {
+            position: 'bottom', // Ubicación de la leyenda
+            horizontalAlign: 'center', // Alineación horizontal
+            floating: false, // No flotar
+            offsetY: 10 // Espacio entre el gráfico y la leyenda
+        }
+    };
+
+    const chart = new ApexCharts(document.querySelector(selector), options);
+    chart.render();
+}
+
+panelAdmin.addEventListener('click', () => {
+    content.innerHTML = `
+        <div class="containerDashInit">
+            <h1>Globo Studio Admin Panel</h1>
+
+            <div class="dashInit">
+                <div class="itemDashInit">
+                    <div class="dashboardCharts">
+                        <div id="salesChart1" class="chart"></div>
+                    </div>
+                </div>
+                <div class="itemDashInit">
+                    <div class="dashboardCharts">
+                        <div id="salesChart2" class="chart"></div>
+                    </div>
+                </div>
+                <div class="itemDashInit">
+                    <div class="dashboardCharts">
+                        <div id="salesChart3" class="chart"></div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+         <div class="salesContainer adminSales">
+        <h2>Sales Overview</h2>
+        <table class="salesTable">
+            <thead>
+                <tr>
+                    <th>Sale</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="status new">New</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                    <td class="actionButtons">
+                        <button id="edit">Gestion</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><span class="status building">Building Art</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                  <td class="actionButtons">
+                        <button id="edit">Gestion</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                     <td class="actionButtons">
+                        <button id="edit">Gestion</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><span class="status on-the-way">On the Way</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                     <td class="actionButtons">
+                        <button id="edit">Gestion</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><span class="status stock">Stock</span></td>
+                    <td>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</td>
+                    <td>01-08-2024</td>
+                   <td class="actionButtons">
+                        <button id="edit">Gestion</button>
+                        <button id="delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    `;
+
+    // Asegúrate de que los elementos con los IDs existan en el DOM antes de renderizar los gráficos
+    setTimeout(() => {
+        renderDonutChart('#salesChart2', [30, 40, 35, 50, 49], ['New', 'Building Art', 'Pending', 'On the Way', 'Stock'], 'Sales Status');
+        renderDonutChart('#salesChart1', [20, 30, 25, 40, 35], ['Ass', 'Bsssss', 'Csssss', 'Dssss', 'Essss'], 'Sales Service');
+        renderDonutChart('#salesChart3', [10, 20, 15, 25, 20],  ['Ass', 'Bsssss', 'Csssss', 'Dssss', 'Essss'], 'Sales Client');
+    }, 0);
+});
 
 sales.addEventListener('click', () => {
     content.innerHTML = `
