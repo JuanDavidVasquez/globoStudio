@@ -1,0 +1,73 @@
++------------------+        +------------------+
+|      User        |        |      Role         |
++------------------+        +------------------+
+| id: INT          |        | id: INT           |
+| userName: VARCHAR|        | name: VARCHAR     |
+| email: VARCHAR   |        +------------------+
+| password: VARCHAR|            |
+| token: VARCHAR   |            |1
+| confirmed: BOOLEAN|           |    +------------------+
+| created_at: TIMESTAMP|     +------|    UserRoles       |
+| updated_at: TIMESTAMP|   |      | id: INT           |
++------------------+    |      | user_id: INT       |
+     |1                |      | role_id: INT       |
+     |                 |      +------------------+
+     |                 |         |
+     |                 |         |1
+     |                 |         |    +------------------+
+     |                 |     +----|      Points         |
+     |                 |     |    | id: INT           |
+     |                 |     |    | user_id: INT      |
+     |                 |     |    | accumulated: INT  |
+     |                 |     |    | expires: DATE     |
+     |                 |     |    +------------------+
+     |                 |     |
+     |                 |     |1
+     |                 |     |    +------------------+
+     |                 |     |    |    Order         |
+     |                 |     |    | id: INT          |
+     |                 |     |    | user_id: INT     |
+     |                 |     |    | points: INT      |
+     |                 |     |    | subtotal: DECIMAL|
+     |                 |     |    | total: DECIMAL   |
+     |                 |     |    | status: VARCHAR  |
+     |                 |     |    | created_at: TIMESTAMP|
+     |                 |     |    | updated_at: TIMESTAMP|
+     |                 |     |    +------------------+
+     |                 |     |         |
+     |                 |     |         |1
+     |                 |     |         |    +------------------+
+     |                 |     |         |    |  OrderItems       |
+     |                 |     |         |    | id: INT           |
+     |                 |     |         |    | order_id: INT     |
+     |                 |     |         |    | product_id: INT   |
+     |                 |     |         |    | quantity: INT     |
+     |                 |     |         |    | price: DECIMAL    |
+     |                 |     |         |    +------------------+
+     |                 |     |         |        |
+     |                 |     |         |        |1
+     |                 |     |         |        |    +------------------+
+     |                 |     |         |        |    |    Product        |
+     |                 |     |         |        |    | id: INT           |
+     |                 |     |         |        |    | category_id: INT |
+     |                 |     |         |        |    | name: VARCHAR     |
+     |                 |     |         |        |    | description: TEXT |
+     |                 |     |         |        |    | price: DECIMAL    |
+     |                 |     |         |        |    +------------------+
+     |                 |     |         |        |
+     |                 |     |         |        |N
+     |                 |     |         |     +--|    +------------------+
+     |                 |     |         |     |  |    |    Sale           |
+     |                 |     |         |     |  |    | id: INT           |
+     |                 |     |         |     |  |    | user_id: INT      |
+     |                 |     |         |     |  |    | order_id: INT     |
+     |                 |     |         |     |  |    | status: VARCHAR   |
+     |                 |     |         |     |  |    | description: TEXT |
+     |                 |     |         |     |  |    | created_at: TIMESTAMP|
+     |                 |     |         |     |  |    | updated_at: TIMESTAMP|
+     |                 |     |         |     |  |    +------------------+
+     |                 |     |         |
+     |                 |     |         |
+     |                 |     |         |
+     |                 |     |
+     +------------------+
