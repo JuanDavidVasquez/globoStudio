@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.canvas.height = window.innerHeight;
   
         this.balloonImage = new Image();
-        this.balloonImage.src = '../img/globo_artistico_1_n.png';
+        this.balloonImage.src = 'http://127.0.0.1:5500/assets/img/globo_artistico_1_n.png';
   
         this.balloonImage.onload = () => {
             this.x = this.randomPosition(); // Posición X inicial del globo
@@ -386,3 +386,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
+
+
+
+
+  /*------------------------------------
+              Params
+  ------------------------------------*/
+
+  // Función para obtener el parámetro de la URL
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Obtener el valor del parámetro 'param'
+const paramValue = getQueryParam('param');
+
+if (paramValue) {
+  console.log('Parameter value:', paramValue);
+} else {
+  console.log('Parameter not found');
+}
