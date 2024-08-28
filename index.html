@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GloboStudio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="nav-logo">
+                <img src="./assets/img/logoPNG.png" alt="menu" class="menu-icon">
+            </div>
+            <div class="content-menu-login">
+                <div class="g_id_signin" data-type="standard"></div>
+            <div class="barras" id="barras">
+                <div class="barra barra1"></div>
+                <div class="barra barra2"></div>
+                <div class="barra barra3"></div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div class="nav-menu">
+        <ul class="hamburguesa">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">Abouts</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button>Login</button></li>
+        </ul>
+    </div>
+    <header>
+        <div class="header-content wrapper">
+            <img src='./assets/img/animateHeader.webp' alt="header" id="headerImg">
+        </div>
+        <section class="section hero">
+            <h1>Globo Studio</h1>
+        </section>
+
+    </header>
+
+    <section class="section about" id="about">
+        <h2>About</h2>
+        <p class="textAbout">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </p>
+        <canvas id="balloonCanvas"></canvas>
+    </section>
+
+    <section class="section services" id="services">
+        <h2>Services</h2>
+        <div class="services-content">            
+            <div class="service">               
+                <h3>Service 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            </div>
+            <div class="service">
+                <h3>Service 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            </div>
+            <div class="service">
+                <h3>Service 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            </div>
+
+        </div>
+        <div class="services-img" id="balloonDraggable">
+        </div>
+    </section>
+
+    <section class="cotiza" id="cotiza">
+        <div class="cotiza-content">
+            <h2>Get a Quote</h2>
+            <form>
+                <select id="first-select">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="balloons">Balloons</option>
+                    <option value="decoration">Decoration</option>
+                    <option value="delivery">Delivery</option>
+                </select>
+                <select id="second-select" style="display:none;">
+                    <!-- Second select options will be populated here -->
+                </select>
+    
+                <button type="button" class="addForm" id="addFormulario">Add</button>
+                <button type="submit">Send</button>
+            </form>
+            <table id="quoteTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+
+
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <div class="contact-content">
+            <div class="contact-form">
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                    <button>Send</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <p>Address: 1234 Street Name, City Name, United States</p>
+                <p>Phone: +1 123 456 7890</p>
+                <p>Email:
+                    <a href="mailto:globoStudio.com">
+                        GloboStudio
+                    </a>
+                </p>
+            </div>
+    </section>
+
+
+    <button id="btnTop" class="btnTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button id="btnOpenForm" class="btnOpenForm">
+        <i class="fas fa-chevron-down"></i>
+    </button>
+    
+    
+    <div id="g_id_onload"
+        data-client_id="624164233600-4jj2ldfh9n3fs91e1psn6pfcll7p8nl6.apps.googleusercontent.com"
+        data-callback="handleCredentialResponse">
+    </div>
+
+
+
+
+    
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+
+<!-- Google script -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script src="./assets//js/google.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
+
+
+$JvA2021Do$
