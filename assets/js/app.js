@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.canvas.height = window.innerHeight;
   
         this.balloonImage = new Image();
-        this.balloonImage.src = 'http://127.0.0.1:5500/assets/img/globo_artistico_1_n.png';
+        this.balloonImage.src = '../img/globo_artistico_1_n.png';
   
         this.balloonImage.onload = () => {
             this.x = this.randomPosition(); // Posición X inicial del globo
